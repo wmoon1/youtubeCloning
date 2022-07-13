@@ -2,6 +2,7 @@ import User from "../models/User";
 import fetch from "cross-fetch";
 import bcrypt from "bcrypt";
 import { response } from "express";
+import { restart } from "nodemon";
 
 export const getJoin = (req, res) => 
     res.render("join", {pageTitle: "Create Account"});
@@ -167,5 +168,42 @@ export const postEdit = async (req, res) => {
     );
     req.session.user = updateUser;
     return res.redirect("/users/edit");
+};
+
+export const getChangePassword = (req, res) => {
+    if(req.session.user.socialOnly === true) {
+        return res.redirect("/");
+    }
+    return res.render("users/change-password", {pageTitle: "Change Password"});
+};
+export const postChangePassword = async (req, res) => {
+    const {
+        session: {
+            user: { _id, password },
+        },
+        body : {oldPassword, newPassword, newPasswordConfirmation},
+    } = req;
+    const ok = await bcrypt.compare(oldPassword, password);
+    if(!ok) {
+        return res.status(400).render("users/change-password", {
+            pageTitle: "Change Password", 
+            errorMessage: "The current password is incorrect"
+        });
+    }
+    if(newPassword !== newPasswordConfirmation) {
+        return res.status(400).render("users/change-password", {
+            pageTitle: "Change Password", 
+            errorMessage: "The password does not match the confirmation"
+        });
+    }
+    const user = await User.findById(_id);
+    // change new password
+    console.log("old paossword",user.password);
+    user.password = newPassword;
+    console.log("new unhashed pw",user.password);
+    await user.save();
+    console.log("new pw",user.password);
+    // send notification
+    return res.redirect("/users/logout");
 };
 export const see = (req,res) => res.send("See User");
