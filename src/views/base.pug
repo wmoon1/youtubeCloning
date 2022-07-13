@@ -1,0 +1,31 @@
+doctype html
+html(lang="en")
+    head
+        title #{pageTitle} | #{siteName}
+        link(rel="stylesheet" href="https://unpkg.com/mvp.css")
+    body
+        header
+            h1=pageTitle
+            nav 
+                ul 
+                    li 
+                        a(href="/") Home
+                    if loggedIn
+                        li
+                            a(href="/videos/upload") Upload Video
+                        li 
+                            a(href="/users/edit") Edit Profile
+                        li 
+                            a(href="/users/logout") Log Out
+                    else
+                        li 
+                            a(href="/join") Join
+                        li 
+                            a(href="/login") Login
+                    li 
+                        a(href="/search") Serach
+                    li 
+                        a(href="/videos/upload") Upload Video
+        main
+            block content
+    include partials/footer.pug
