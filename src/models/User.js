@@ -9,10 +9,18 @@ const userSchema = new mongoose.Schema({
     password: {type: String},
     name:{type: String, required: true},
     location: String,
+    videos: [
+        {type:mongoose.Schema.Types.ObjectId, ref: "Video"}
+    ],
 });
 
 userSchema.pre("save", async function() {
-    this.password = await bcrypt.hash(this.password, 5);
+    // not using 'this.ismodified', 
+    // the password hash has been changed in mongoDB so that cannot login it when I create the Id and upload the video
+    // so we can use it.
+    if(this.isModified("password")){
+        this.password = await bcrypt.hash(this.password, 5);
+    }
 })
 
 const User = mongoose.model('User', userSchema);
