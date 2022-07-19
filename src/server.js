@@ -33,7 +33,9 @@ app.use(
 
 
 app.use(localsMiddleware);
-app.use("/uploads", express.static("uploads"))
+app.use("/uploads", express.static("uploads"));
+// first "" is URL, and second "" is folder
+app.use("/static", express.static("assets"));
 app.use("/", rootRouter);
 app.use("/videos", videoRouter);
 app.use("/users", userRouter);
