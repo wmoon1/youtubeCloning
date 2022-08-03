@@ -1,0 +1,53 @@
+[33mcommit 082f3ec9a07319ea761423f2ca27e90277f442f5[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31mheroku/master[m[33m)[m
+Author: Wooram Moon <wmoon0022@gmail.com>
+Date:   Wed Aug 3 15:23:15 2022 -0400
+
+    build server and npm run
+
+[33mcommit ea2d8156d07c087b0ea2015ecdbb4b703aac28ce[m
+Author: Wooram Moon <wmoon0022@gmail.com>
+Date:   Tue Aug 2 23:31:30 2022 -0400
+
+    Comments
+
+[33mcommit 00bb3d19c31bb83eb9ec5b69530fe8fcffe064a1[m
+Author: Wooram Moon <wmoon0022@gmail.com>
+Date:   Mon Jul 25 08:19:05 2022 -0400
+
+    Views api
+
+[33mcommit 6b91218f875dc2d3101c8d54ee63c0e66f289cea[m
+Author: Wooram Moon <wmoon0022@gmail.com>
+Date:   Thu Jul 21 10:20:34 2022 -0400
+
+    adding style css
+
+[33mcommit 3a261d5c16d9b7c2e2326f9bd9d6454f75c3abd1[m
+Author: Wooram Moon <wmoon0022@gmail.com>
+Date:   Tue Jul 19 09:28:51 2022 -0400
+
+    add webpack
+
+[33mcommit 6b21f5b43bb2aafc497b49bfdaaeca999e8ff34e[m
+Author: Wooram Moon <wmoon0022@gmail.com>
+Date:   Sat Jul 16 19:04:33 2022 -0400
+
+    Upload Video
+
+[33mcommit 0b9bb1249ea79c993d8d40dde8f56f5367da3197[m
+Author: Wooram Moon <wmoon0022@gmail.com>
+Date:   Thu Jul 14 12:36:25 2022 -0400
+
+    Uploading files
+
+[33mcommit 74edb5d0494c2e4bc90cf5f1dcfdf1062a015102[m
+Author: Wooram Moon <wmoon0022@gmail.com>
+Date:   Wed Jul 13 15:29:21 2022 -0400
+
+    Change Password
+
+[33mcommit 0a651e470acf2e73bfe4d585ba3be5a018647f8f[m
+Author: Wooram Moon <wmoon0022@gmail.com>
+Date:   Wed Jul 13 06:29:43 2022 -0400
+
+    first commits

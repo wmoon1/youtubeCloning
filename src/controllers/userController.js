@@ -146,7 +146,6 @@ export const finishGithubLogin = async (req,res) => {
 
 export const logout = (req,res) => {
     req.session.destroy();
-    req.flash("info", "Bye Bye");
     return res.redirect("/");
 };
 export const getEdit = (req, res) => {
@@ -161,6 +160,7 @@ export const postEdit = async (req, res) => {
         body: {name, email, username, location},
         file,
     } = req;
+    console.log(file);
     const updateUser = await User.findByIdAndUpdate(_id, {      
         avatarUrl: file ? file.path : avatarUrl,
         name,
@@ -176,8 +176,6 @@ export const postEdit = async (req, res) => {
 
 export const getChangePassword = (req, res) => {
     if(req.session.user.socialOnly === true) {
-        req.flash("error", "Can't change password.");
-
         return res.redirect("/");
     }
     return res.render("users/change-password", {pageTitle: "Change Password"});
@@ -204,15 +202,14 @@ export const postChangePassword = async (req, res) => {
     }
     const user = await User.findById(_id);
     // change new password
-   
+    console.log("old paossword",user.password);
     user.password = newPassword;
-  
+    console.log("new unhashed pw",user.password);
     await user.save();
-    req.flash("error", "Password updated");
+    console.log("new pw",user.password);
     // send notification
     return res.redirect("/users/logout");
 };
-
 export const see = async (req,res) => {
     const {id} = req.params;
     const user = await User.findById(id).populate("videos");

@@ -1,5 +1,3 @@
-include mixins/message
-
 doctype html
 html(lang="en")
     head
@@ -8,15 +6,8 @@ html(lang="en")
         link(rel="stylesheet", href="/static/css/styles.css")
     body
     h1=pageTitle
-        if messages.error 
-            +message("error", messages.error)
-        if messages.info 
-            +message("info", messages.info)
-        if messages.success 
-            +message("success", messages.success)
         include partials/header
         main
             block content
         include partials/footer.pug
-    script(src="static/js/main.js")
     block scripts
