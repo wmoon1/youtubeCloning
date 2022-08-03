@@ -1,5 +1,6 @@
 extends base
 
+
 block content
     div#videoContainer(data-Id=video._id)
         video(src="/" + video.fileUrl, controls, width="1050", height="600")
@@ -30,6 +31,20 @@ block content
     //-     a(href=`${video.id}/edit`)  Edit Video &rarr;
     //-     br
     //-     a(href=`${video.id}/delete`)  Delete Video &rarr;
-
+    if loggedIn
+        div.video__add-comments
+            form.video__comment-form#commentForm()
+                textarea(cols="30", rows="10", placeholder="Write a nice comment...")
+                button Add Comment
+    div.video__comments
+        ul 
+            each comment in video.comments.reverse()
+                li.video__comment
+                    i.fas.fa-comment
+                    span  #{comment.text}
+                    //only show the logginer
+                    span   ⛔
 block scripts 
-    script(src="/static/js/videoplayer.js") 
+    script(src="/static/js/videoplayer.js")
+    if loggedIn
+        script(src="/static/js/commentSection.js")  

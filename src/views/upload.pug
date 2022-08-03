@@ -1,7 +1,8 @@
 extends base.pug
 
 block content
-    div 
+    div
+        video#preview 
         button#startBtn Start Recording
     if errorMessage 
         span=errorMessage
