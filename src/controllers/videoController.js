@@ -22,7 +22,11 @@ export const home = async (req, res) => {
 };
 export const watch = async (req, res) => {
     const {id} = req.params;
+<<<<<<< HEAD
     const video = await Video.findById(id).populate("owner");
+=======
+    const video = await Video.findById(id).populate("owner").populate("comments");
+>>>>>>> ba2c3862ec865cb42d444bd05465acaf9a95e4a8
     //Usually Error first is better
     if(video === null){
         return res.render("404", {pageTitle: "Video is not Found" })
