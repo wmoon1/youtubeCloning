@@ -2,8 +2,8 @@ import User from "../models/User";
 import Video from "../models/Video";
 import fetch from "cross-fetch";
 import bcrypt from "bcrypt";
-import { response } from "express";
-import { restart } from "nodemon";
+import response  from "express";
+import restart  from "nodemon";
 
 export const getJoin = (req, res) => 
     res.render("join", {pageTitle: "Create Account"});
