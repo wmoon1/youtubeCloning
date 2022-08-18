@@ -8,4 +8,4 @@ const handleStart = async() => {
     console.log(stream);
 }
 
-startBtn.addEventListener("click", handleStart);
+//startBtn.addEventListener("click", handleStart);
