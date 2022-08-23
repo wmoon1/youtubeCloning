@@ -68,7 +68,7 @@ export const postEdit = async (req, res) => {
 
 
 export const getUpload = (req,res) => {
-   return res.render("Upload", {pageTitle: "Upload Video"});
+   return res.render("upload", {pageTitle: "Upload Video"});
 };
 
 export const postUpload = async (req, res) => {
